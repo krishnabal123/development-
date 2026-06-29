@@ -1,544 +1,792 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krishna — Full Stack Developer</title>
-  <meta name="description" content="Full-stack developer building SaaS platforms, AI tools, and web applications." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --purple: #7F77DD; --purple-dark: #3C3489;
-  --teal: #1D9E75; --coral: #D85A30; --amber: #BA7517;
-  --dark: #0f0f13; --dark-2: #16161d; --dark-3: #1e1e27;
-  --text: #f0eff8; --text-muted: #9998b0;
-  --border: rgba(255,255,255,0.08);
-  --font: 'Space Grotesk', sans-serif; --mono: 'Space Mono', monospace;
-  --radius: 14px; --radius-lg: 24px;
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--font); background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-a { color: inherit; text-decoration: none; }
 
-/* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(15,15,19,0.88); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--border); }
-.nav-logo { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; }
-.dot { color: var(--purple); }
-.nav-links { display: flex; list-style: none; gap: 2rem; }
-.nav-links a { font-size: 0.9rem; color: var(--text-muted); transition: color 0.2s; }
-.nav-links a:hover { color: var(--text); }
-.nav-cta { background: var(--purple); color: #fff; border: none; padding: 0.5rem 1.25rem; border-radius: 100px; font-family: var(--font); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.2s, transform 0.15s; }
-.nav-cta:hover { background: var(--purple-dark); transform: translateY(-1px); }
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bal Krishna | Full Stack &amp; AI Automation Expert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#594400",
+                    "on-tertiary-container": "#503d00",
+                    "outline-variant": "#494551",
+                    "primary-fixed": "#e9ddff",
+                    "error-container": "#93000a",
+                    "primary": "#cfbcff",
+                    "on-background": "#e6e0e9",
+                    "on-surface": "#e6e0e9",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container": "#211f24",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#141218",
+                    "tertiary": "#e7c365",
+                    "surface-container-highest": "#36343a",
+                    "on-secondary-container": "#bfb2da",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "primary-container": "#6750a4",
+                    "inverse-primary": "#6750a4",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#22005d",
+                    "surface-container-lowest": "#0f0d13",
+                    "primary-fixed-dim": "#cfbcff",
+                    "secondary": "#cdc0e9",
+                    "surface-container-high": "#2b292f",
+                    "inverse-surface": "#e6e0e9",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#cbc4d2",
+                    "tertiary-fixed": "#ffdf93",
+                    "tertiary-container": "#c9a74d",
+                    "secondary-container": "#4d4465",
+                    "surface-tint": "#cfbcff",
+                    "surface-bright": "#3b383e",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "on-primary-container": "#e0d2ff",
+                    "outline": "#948e9c",
+                    "on-primary": "#381e72",
+                    "on-tertiary": "#3e2e00",
+                    "surface-dim": "#141218",
+                    "surface": "#141218",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-secondary": "#342b4b",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "surface-variant": "#36343a",
+                    "surface-container-low": "#1d1b20",
+                    "inverse-on-surface": "#322f35",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed-variant": "#4f378a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "12px",
+                    "margin-mobile": "20px",
+                    "section-gap": "160px",
+                    "gutter": "24px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "display-2xl": ["Space Grotesk"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                    "display-2xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e6e0e9;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-/* HERO */
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 7rem 2rem 4rem; max-width: 1200px; margin: 0 auto; gap: 3rem; position: relative; overflow: hidden; }
-.hero-bg-blobs { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
-.blob-1 { width: 500px; height: 500px; background: var(--purple); top: -100px; left: -100px; animation: blobFloat 8s ease-in-out infinite; }
-.blob-2 { width: 400px; height: 400px; background: var(--teal); bottom: -50px; right: 10%; animation: blobFloat 10s ease-in-out infinite reverse; }
-.blob-3 { width: 300px; height: 300px; background: var(--coral); top: 30%; right: 30%; animation: blobFloat 7s ease-in-out infinite 2s; }
-@keyframes blobFloat { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(20px,-20px) scale(1.05); } 66% { transform: translate(-15px,15px) scale(0.97); } }
-.hero-content { flex: 1; max-width: 600px; }
-.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: 100px; border: 0.5px solid rgba(29,158,117,0.4); background: rgba(29,158,117,0.1); color: #5DCAA5; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; }
-.hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
-.highlight { background: linear-gradient(135deg, var(--purple) 0%, var(--coral) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero-sub { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; margin-bottom: 2rem; line-height: 1.7; }
-.hero-actions { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
-.btn-primary { background: var(--purple); color: #fff; border: none; padding: 0.8rem 1.75rem; border-radius: 100px; font-family: var(--font); font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
-.btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); }
-.btn-ghost { color: var(--text-muted); font-size: 0.95rem; padding: 0.8rem 1rem; border-radius: 100px; transition: color 0.2s; }
-.btn-ghost:hover { color: var(--text); }
-.btn-full { width: 100%; text-align: center; display: block; }
-.hero-stats { display: flex; gap: 2.5rem; }
-.stat { display: flex; flex-direction: column; }
-.stat-num { font-size: 1.75rem; font-weight: 700; font-family: var(--mono); }
-.stat-label { font-size: 0.8rem; color: var(--text-muted); }
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+            animation: orbMove 20s infinite alternate ease-in-out;
+        }
+        @keyframes orbMove {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.2); }
+        }
 
-/* HERO IMAGE */
-.hero-image { flex-shrink: 0; position: relative; width: 320px; height: 320px; }
-.avatar-ring { width: 280px; height: 280px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--teal), var(--coral)); padding: 3px; animation: ringRotate 8s linear infinite; }
-@keyframes ringRotate { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
-.avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: var(--dark-2); display: flex; align-items: center; justify-content: center; }
-.avatar-placeholder { font-family: var(--mono); font-size: 3rem; font-weight: 700; color: var(--purple); }
-.floating-tag { position: absolute; background: var(--dark-3); border: 0.5px solid var(--border); border-radius: 100px; padding: 0.35rem 0.85rem; font-size: 0.78rem; font-weight: 500; white-space: nowrap; animation: tagFloat 4s ease-in-out infinite; }
-.tag-1 { top: 10px; right: -20px; color: #AFA9EC; border-color: rgba(127,119,221,0.3); }
-.tag-2 { bottom: 60px; right: -30px; color: #5DCAA5; border-color: rgba(29,158,117,0.3); animation-delay: 1.5s; }
-.tag-3 { bottom: 10px; left: -10px; color: #FAC775; border-color: rgba(186,117,23,0.3); animation-delay: 0.75s; }
-@keyframes tagFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .glass-card {
+            background: rgba(20, 18, 24, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
 
-/* SECTIONS */
-.section { padding: 6rem 0; }
-.section-dark { background: var(--dark-2); }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.section-header { margin-bottom: 3.5rem; }
-.section-label { font-family: var(--mono); font-size: 0.78rem; color: var(--purple); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.75rem; }
-.section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; letter-spacing: -0.03em; }
+        .text-reveal {
+            overflow: hidden;
+        }
+        .text-reveal-inner {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+        @keyframes reveal {
+            to { transform: translateY(0); }
+        }
 
-/* PROJECTS */
-.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.project-card { background: var(--dark-2); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.25s, border-color 0.25s; display: flex; flex-direction: column; }
-.project-card:hover { transform: translateY(-4px); border-color: rgba(127,119,221,0.3); }
-.project-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.2fr; min-height: 260px; }
-.project-featured .project-info { display: flex; flex-direction: column; justify-content: center; }
-.project-visual { min-height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; flex-shrink: 0; }
-.pv-purple { background: linear-gradient(135deg, #26215C, #534AB7); }
-.pv-coral  { background: linear-gradient(135deg, #4A1B0C, #993C1D); }
-.pv-teal   { background: linear-gradient(135deg, #04342C, #0F6E56); }
-.pv-amber  { background: linear-gradient(135deg, #412402, #854F0B); }
-.pv-pink   { background: linear-gradient(135deg, #3A1228, #8B2252); }
+        .tilt-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        .tilt-card:hover {
+            box-shadow: 0 0 30px rgba(207, 188, 255, 0.15);
+        }
 
-/* Mock UIs */
-.mock-browser { width: 200px; background: rgba(0,0,0,0.3); border-radius: 10px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.1); }
-.mock-bar { height: 26px; background: rgba(0,0,0,0.4); display: flex; align-items: center; padding: 0 10px; gap: 6px; }
-.mock-bar span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.2); }
-.mock-screen { height: 110px; }
-.mock-screen-credit { background: linear-gradient(180deg, rgba(127,119,221,0.15) 0%, transparent 100%); display: flex; flex-direction: column; gap: 6px; padding: 10px; }
-.mock-score { font-family: var(--mono); font-size: 22px; font-weight: 700; color: #5DCAA5; text-align: center; padding: 8px 0; }
-.mock-bar-item { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.1); overflow: hidden; }
-.mock-bar-fill { height: 100%; border-radius: 3px; }
-.mock-screen-dash { background: rgba(0,0,0,0.2); padding: 8px; display: flex; flex-direction: column; gap: 5px; }
-.mock-dash-row { display: flex; gap: 5px; }
-.mock-dash-card { flex: 1; height: 28px; border-radius: 4px; background: rgba(255,255,255,0.06); }
-.mock-dash-list { display: flex; flex-direction: column; gap: 4px; }
-.mock-dash-line { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.08); }
-.mock-screen-chat { background: rgba(0,0,0,0.2); padding: 10px; display: flex; flex-direction: column; gap: 6px; justify-content: flex-end; }
-.mock-bubble { padding: 5px 9px; border-radius: 10px; font-size: 9px; color: rgba(255,255,255,0.7); max-width: 80%; }
-.mock-bubble.user { background: rgba(127,119,221,0.3); align-self: flex-end; }
-.mock-bubble.bot { background: rgba(29,158,117,0.25); align-self: flex-start; }
-.mock-screen-map { background: rgba(0,0,0,0.15); padding: 8px; display: flex; flex-direction: column; gap: 5px; }
-.mock-map-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; flex: 1; }
-.mock-map-cell { height: 22px; border-radius: 3px; background: rgba(255,255,255,0.05); }
-.mock-map-cell.active { background: rgba(29,158,117,0.3); }
+        .tech-badge-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
 
-.project-info { padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.tag { font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 100px; background: rgba(127,119,221,0.12); color: #AFA9EC; border: 0.5px solid rgba(127,119,221,0.18); font-family: var(--mono); }
-.tag-green { background: rgba(29,158,117,0.12); color: #5DCAA5; border-color: rgba(29,158,117,0.2); }
-.tag-coral { background: rgba(216,90,48,0.12); color: #F0997B; border-color: rgba(216,90,48,0.18); }
-.tag-amber { background: rgba(186,117,23,0.12); color: #FAC775; border-color: rgba(186,117,23,0.18); }
-.project-title { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
-.project-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
-.project-links { display: flex; align-items: center; gap: 1rem; margin-top: auto; padding-top: 0.5rem; }
-.link-live { font-size: 0.85rem; font-weight: 500; color: var(--purple); transition: color 0.2s; }
-.link-live:hover { color: #AFA9EC; }
-.link-code { font-size: 0.85rem; color: var(--text-muted); font-family: var(--mono); transition: color 0.2s; }
-.link-code:hover { color: var(--text); }
+        .animated-border {
+            position: relative;
+            background: #141218;
+            padding: 2px;
+        }
+        .animated-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #cfbcff, transparent, #e7c365, transparent, #cfbcff);
+            background-size: 200% 200%;
+            z-index: -1;
+            border-radius: inherit;
+            animation: borderRotate 6s linear infinite;
+        }
+        @keyframes borderRotate {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 200%; }
+        }
 
-/* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.skill-group-title { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem; }
-.skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.pill { padding: 0.4rem 0.9rem; border-radius: 100px; font-size: 0.85rem; font-weight: 500; border: 0.5px solid transparent; transition: transform 0.2s; cursor: default; }
-.pill:hover { transform: translateY(-2px); }
-.pill-purple { background: rgba(127,119,221,0.12); color: #AFA9EC; border-color: rgba(127,119,221,0.2); }
-.pill-teal   { background: rgba(29,158,117,0.12); color: #5DCAA5; border-color: rgba(29,158,117,0.2); }
-.pill-coral  { background: rgba(216,90,48,0.12); color: #F0997B; border-color: rgba(216,90,48,0.2); }
+        .magnetic-btn {
+            display: inline-flex;
+            transition: transform 0.2s linear, box-shadow 0.3s ease;
+        }
+        .magnetic-btn:hover {
+            box-shadow: 0 0 20px rgba(207, 188, 255, 0.3);
+        }
 
-/* CONTACT */
-.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-.contact-text p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; }
-.contact-links { display: flex; flex-direction: column; gap: 1rem; }
-.contact-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: var(--text-muted); transition: color 0.2s; padding: 0.5rem 0; border-bottom: 0.5px solid var(--border); }
-.contact-item:hover { color: var(--text); }
-.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-group label { font-size: 0.78rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
-.form-group input, .form-group textarea { background: var(--dark-2); border: 0.5px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 0.75rem 1rem; font-family: var(--font); font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; }
-.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--purple); }
-.form-success { display: none; text-align: center; color: #5DCAA5; font-size: 0.9rem; padding: 0.75rem; background: rgba(29,158,117,0.1); border-radius: var(--radius); border: 0.5px solid rgba(29,158,117,0.2); }
+        .terminal-window {
+            background: rgba(10, 10, 10, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: #cfbcff;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
-/* FOOTER */
-.footer { border-top: 0.5px solid var(--border); padding: 2rem 0; }
-.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.footer p { font-size: 0.85rem; color: var(--text-muted); }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s; }
-.footer-links a:hover { color: var(--text); }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(-50%);
+        }
+        .timeline-line-inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, #cfbcff, #e7c365);
+            height: 0%;
+            transition: height 0.1s linear;
+        }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero { flex-direction: column; text-align: center; padding-top: 6rem; }
-  .hero-stats { justify-content: center; }
-  .hero-image { width: 240px; height: 240px; }
-  .avatar-ring { width: 210px; height: 210px; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .project-featured { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-}
-@media (max-width: 600px) {
-  .nav-links { display: none; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .footer-inner { flex-direction: column; align-items: flex-start; }
-}
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-  </style>
+        .portrait-glow {
+            box-shadow: 0 0 60px -10px rgba(103, 80, 164, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; transform: none; }
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            border-color: #cfbcff;
+            background: rgba(207, 188, 255, 0.05);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body>
+<body class="selection:bg-primary selection:text-on-primary">
+<!-- Visual depth elements -->
+<div class="orb w-[500px] h-[500px] bg-primary top-[-10%] left-[-10%]"></div>
+<div class="orb w-[400px] h-[400px] bg-tertiary bottom-[-5%] right-[-5%]"></div>
+<div class="orb w-[300px] h-[300px] bg-secondary top-[40%] right-[10%]" style="animation-delay: -5s;"></div>
 
-  <nav class="nav">
-    <div class="nav-logo">Krishna<span class="dot">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire me</button>
-  </nav>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-mobile md:px-gutter h-20">
+<a class="font-display-xl text-display-xl tracking-tighter text-on-surface" href="#">KRISHNA</a>
+<div class="hidden lg:flex items-center gap-10">
+<a class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-on-surface transition-colors" href="#about">About</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-on-surface transition-colors" href="#projects">Projects</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-on-surface transition-colors" href="#experience">Experience</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-on-surface transition-colors" href="#skills">Skills</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-on-surface transition-colors" href="#contact">Contact</a>
+</div>
+<button class="magnetic-btn bg-primary text-on-primary px-8 py-3 rounded-full font-label-sm text-label-sm font-semibold hover:opacity-90">Hire Me</button>
+</div>
+</nav>
+<main class="relative z-10">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center max-w-[1200px] mx-auto px-margin-mobile md:px-gutter pt-32 pb-section-gap">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-10">
+<div class="space-y-4">
+<div class="text-reveal">
+<h1 class="text-reveal-inner font-display-2xl text-display-2xl tracking-tighter text-on-surface">
+                                Bal Krishna
+                            </h1>
+</div>
+<div class="space-y-2">
+<p class="font-headline-lg text-headline-lg text-primary leading-tight">Full Stack Developer</p>
+<p class="font-headline-lg text-headline-lg text-tertiary leading-tight">Laravel Engineer</p>
+<p class="font-headline-lg text-headline-lg text-secondary-fixed-dim leading-tight">AI Automation Developer</p>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                            I build enterprise software, AI-powered automation systems, SaaS platforms, and scalable web applications focused on performance, automation, and user experience.
+                        </p>
+</div>
+<!-- Terminal Intro -->
+<div class="terminal-window rounded-xl p-5 overflow-hidden w-full max-w-md hidden md:block border-l-4 border-l-primary">
+<div class="flex gap-1.5 mb-4">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-[13px] leading-relaxed text-primary/80" id="terminal-content">
+<span class="text-secondary opacity-50">&gt;</span> Booting Portfolio...<br/>
+<span class="text-secondary opacity-50">&gt;</span> Loading Laravel... [################] 100%<br/>
+<span class="text-secondary opacity-50">&gt;</span> Loading AI... [################] 100%<br/>
+<span class="text-secondary opacity-50">&gt;</span> Welcome Bal Krishna<span class="terminal-cursor"></span>
+</div>
+</div>
+<div class="flex flex-wrap gap-5 pt-4">
+<a class="magnetic-btn bg-on-surface text-background px-10 py-4 rounded-xl font-label-sm text-label-sm font-bold" href="#projects" id="view-projects-link">View Projects</a>
+<a class="magnetic-btn border border-white/10 bg-white/5 text-on-surface px-10 py-4 rounded-xl font-label-sm text-label-sm flex items-center gap-2" href="bal-krishna-resume.html" download>
+<span class="material-symbols-outlined text-[20px]">download</span>
+                            Download Resume
+                        </a>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+<!-- Floating Tech Badges -->
+<div class="absolute -top-10 -left-5 tech-badge-float bg-surface-container/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/10 flex items-center gap-2 z-20" style="animation-delay: 0s">
+<span class="text-primary font-bold text-label-sm">Laravel</span>
+</div>
+<div class="absolute top-20 -right-5 tech-badge-float bg-surface-container/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/10 flex items-center gap-2 z-20" style="animation-delay: 1.5s">
+<span class="text-tertiary font-bold text-label-sm">OpenAI</span>
+</div>
+<div class="absolute bottom-20 -left-12 tech-badge-float bg-surface-container/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/10 flex items-center gap-2 z-20" style="animation-delay: 3s">
+<span class="text-secondary font-bold text-label-sm">React</span>
+</div>
+<div class="relative group w-full max-w-[440px] aspect-[4/5] animated-border rounded-[2.5rem] overflow-hidden portrait-glow transform hover:scale-[1.02] transition-transform duration-700">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-40"></div>
+<img alt="Bal Krishna Portrait" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" src="photo.jpg"/>
+<div class="absolute inset-0 glass-card opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-gutter py-section-gap overflow-hidden" id="about">
+<div class="grid md:grid-cols-2 gap-24 items-center">
+<div class="space-y-12 reveal-on-scroll">
+<div class="space-y-6">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">The Mission</span>
+<h2 class="font-display-xl text-display-xl text-on-surface leading-tight">Architecting the future with code and intelligence.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            I am a Full Stack Developer &amp; AI Engineer dedicated to crafting robust enterprise solutions. With deep expertise in Laravel, React, and Python, I specialize in bridging the gap between complex business logic and seamless user experiences.
+                        </p>
+</div>
+<div class="space-y-6">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            My focus is on <strong>AI-powered automation</strong> and <strong>Enterprise SaaS</strong> architecture. I build systems that don't just process data, but provide intelligent insights and automate high-value workflows to drive massive efficiency gains for businesses.
+                        </p>
+<div class="flex gap-8">
+<div>
+<div class="text-display-xl text-on-surface font-bold">50+</div>
+<div class="text-label-sm text-outline-variant">Projects Delivered</div>
+</div>
+<div>
+<div class="text-display-xl text-tertiary font-bold">99%</div>
+<div class="text-label-sm text-outline-variant">Automation Rate</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative reveal-on-scroll flex justify-center">
+<div class="relative w-full aspect-square max-w-md">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-[120px] animate-pulse"></div>
+<svg class="relative z-10 w-full h-full opacity-60 drop-shadow-2xl" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path class="text-primary/20" d="M45.7,-78.3C58.9,-71.1,69.1,-58.5,76.5,-44.7C83.8,-30.9,88.4,-15.5,87.6,-0.5C86.7,14.5,80.5,29,71.5,41.4C62.5,53.8,50.7,64.1,37.2,71.6C23.7,79.1,8.5,83.8,-6.4,81.3C-21.3,78.8,-35.8,69,-48.3,58.7C-60.8,48.4,-71.4,37.6,-78.3,24.5C-85.2,11.5,-88.4,-3.8,-85.4,-17.8C-82.5,-31.8,-73.3,-44.6,-61.7,-52.3C-50,-60,-35.9,-62.7,-23.1,-70C-10.2,-77.3,1.3,-89.2,13.7,-88.7C26.1,-88.2,32.5,-85.5,45.7,-78.3Z" fill="currentColor" transform="translate(100 100)"></path>
+<g class="text-on-surface animate-pulse" style="animation-duration: 4s">
+<circle cx="100" cy="100" fill="none" r="50" stroke="currentColor" stroke-dasharray="8 4" stroke-width="0.5"></circle>
+<circle cx="100" cy="100" fill="none" r="75" stroke="currentColor" stroke-width="0.2"></circle>
+</g>
+</svg>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined text-[60px] text-primary">hub</span>
+<span class="text-label-sm font-bold mt-4 tracking-widest text-center">FULL STACK<br/>ENGINEER</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-gutter py-section-gap" id="projects">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="space-y-4">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">Portfolio</span>
+<h2 class="font-display-xl text-display-xl text-on-surface">Selected Flagships</h2>
+</div>
+<p class="font-body-md text-body-md text-outline-variant max-w-sm">
+                    A curated collection of enterprise, AI, and business platforms engineered for scale and performance.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project Card 1: Unicel Autotech -->
+<div class="group tilt-card glass-card p-6 rounded-[2.5rem] space-y-6 overflow-hidden">
+<div class="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-surface-container flex items-center justify-center">
+<img alt="Unicel Autotech Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAebbMQjAbzrrTthA1IevKA14_gL2OaZBUsc4OXG5NzD_bmwFv3tYxxWMt8zfmli3XNF4RMDif5FBy0rR8NKesJeWg0TLqjZWffwXTmO3TqgLs5HSQeBq-CT-K2OxNE4qni5qRPwoHtg81C4vMXh-_rGuxghUWng9AYpi0Ljssm8DSnmpGaeBmfTc-BSPd0WCf11B6ReWt0UeE0w2YyHX2aEe-0rKJ5QGBnfPefhZG4rLPw7kHRx077D6D3JnfCG8SMmHB5DJbAxqhp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<span class="text-white font-bold text-label-sm">VIEW CASE STUDY</span>
+</div>
+</div>
+<div class="space-y-4 px-2">
+<div class="flex justify-between items-start">
+<div class="space-y-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Unicel Autotech</h3>
+<p class="text-outline-variant text-body-md">Enterprise Asset Management</p>
+<p class="text-outline-variant text-body-md max-w-md">A large-scale DG Site Management platform built for enterprise operations. Features include preventive maintenance, ticket management, work orders, runtime tracking, customer and manager dashboards, activity logging, notifications, role-based access, exports, and reporting.</p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Laravel</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Filament</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Livewire</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">PHP</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">MySQL</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Tailwind CSS</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Spatie Permission</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Enterprise</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Laravel</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Filament</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Livewire</span>
+</div>
+<div class="flex gap-4 pt-2">
+<a class="magnetic-btn border border-white/10 bg-white/5 text-on-surface px-5 py-3 rounded-full font-label-sm text-label-sm hover:bg-white/5" href="https://github.com/krishnabal123" target="_blank" rel="noreferrer">GitHub</a>
+<a class="magnetic-btn bg-on-surface text-background px-5 py-3 rounded-full font-label-sm text-label-sm font-bold" href="#" target="_blank" rel="noreferrer">Case Study</a>
+</div>
+</div>
+</div>
+<!-- Project Card 2: CreditYoda -->
+<div class="group tilt-card glass-card p-6 rounded-[2.5rem] space-y-6 overflow-hidden">
+<div class="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-surface-container flex items-center justify-center">
+<img alt="CreditYoda Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb8PlmkwXIdPy9Ss-gr1rAv9l-V53I57NWeXjH194RzcCI7GzMYNGhWMhYOHUK-UvcECpgNs5lRDMrRMeYdk-O4H81fALscM0xyRyBcBwpXzrd5K9zfKwjNtUL8k7MjciT8_t-BnMuvGK_rmAJdl0PnuaTewGRPIPZh4qvAJx2VdSNcNil-eS9HKDi6nZl5q_FmEbAkKXZ25EuvCf3Kj4yuc1HqwS0N7CQaB_i3fc6GWhanRyAJ2lAJ6kUm4HPnVAu3IFk5u9Gjrsp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<span class="text-white font-bold text-label-sm">VIEW CASE STUDY</span>
+</div>
+</div>
+<div class="space-y-4 px-2">
+<div class="flex justify-between items-start">
+<div class="space-y-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">CreditYoda</h3>
+<p class="text-outline-variant text-body-md">AI + FinTech</p>
+<p class="text-outline-variant text-body-md max-w-md">An AI-powered credit analysis platform that evaluates financial data, generates insights, predicts credit health, and provides intelligent recommendations through modern dashboards and automation.</p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">React</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Django</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Python</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">PostgreSQL</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">Docker</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-tertiary">OpenAI</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">AI</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">FinTech</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">Dashboard</span>
+</div>
+<div class="flex gap-4 pt-2">
+<a class="magnetic-btn border border-white/10 bg-white/5 text-on-surface px-5 py-3 rounded-full font-label-sm text-label-sm hover:bg-white/5" href="https://github.com/krishnabal123" target="_blank" rel="noreferrer">GitHub</a>
+<a class="magnetic-btn bg-on-surface text-background px-5 py-3 rounded-full font-label-sm text-label-sm font-bold" href="#" target="_blank" rel="noreferrer">Case Study</a>
+</div>
+</div>
+</div>
+<!-- Project Card 3: AI Website Builder -->
+<div class="group tilt-card glass-card p-6 rounded-[2.5rem] space-y-6 overflow-hidden">
+<div class="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-surface-container flex items-center justify-center">
+<img alt="AI Website Builder" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu3vSC8m35BQqfaCoJxusExLrX2m9Hsf4uKSoyp7ygD45F9sRXxc6_VBzNv1OykYXeSH1xm4mct0IMkUgJYgUFwjPGoNqtwmRZAzQ8S2vupER2_X-rSBOqStwSN_seGhhEtEge6GpZSlJYKR_JTNatv6xu2FFdcSWm7dR9FD-Jpc9qSg1WWhOcI1Z5H5MKjcC08T6fEC3ZJJwy-Jvl42vVzRXn3EzlFBjj6dze6dqfDvWFG5EjzT50z5L-NY9n381B8sNRb19EOM6u"/>
+</div>
+<div class="space-y-4 px-2">
+<div class="flex justify-between items-start">
+<div class="space-y-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">AI Website Builder</h3>
+<p class="text-outline-variant text-body-md">AI SaaS Platform</p>
+<p class="text-outline-variant text-body-md max-w-md">An intelligent platform capable of generating complete business websites using AI. Includes automation workflows, editable layouts, chatbot integration, deployment tools, and modern UI generation.</p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">Python</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">AI</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">Docker</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">React</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">Automation</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">AI</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">SaaS</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-secondary">Automation</span>
+</div>
+<div class="flex gap-4 pt-2">
+<a class="magnetic-btn border border-white/10 bg-white/5 text-on-surface px-5 py-3 rounded-full font-label-sm text-label-sm hover:bg-white/5" href="https://github.com/krishnabal123" target="_blank" rel="noreferrer">GitHub</a>
+<a class="magnetic-btn bg-on-surface text-background px-5 py-3 rounded-full font-label-sm text-label-sm font-bold" href="#" target="_blank" rel="noreferrer">Case Study</a>
+</div>
+</div>
+</div>
+<!-- Project Card 4: North America Sites -->
+<div class="group tilt-card glass-card p-6 rounded-[2.5rem] space-y-6 overflow-hidden">
+<div class="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-surface-container flex items-center justify-center">
+<img alt="North America Projects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDICNnPqK1dGTLLSM0eAHU_ez7lOR7DTGom-ftQB-rRQiQVxgtacMWX-CvUMH6IwVy-xxL_j2AYZoEY7hpk7Np8kcPdSDBlp0paZcAFMkolQIB1fwFFpheeqUwbJRcJnn3aa_QsLGwtb6YBaeg44lXMt3K_LnDdG_NHEDHXRtyjtrMeHZp7gfzOTY245Gfi_EuKdQyKE_zwnOENQlimDxV8Pg3JUvF_4oPSynUlGmx53RjpDPq0_IMGUpEhVB9HEEWEUCd10caP01vk"/>
+</div>
+<div class="space-y-4 px-2">
+<div class="flex justify-between items-start">
+<div class="space-y-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Global Business Websites</h3>
+<p class="text-outline-variant text-body-md">Business Platform</p>
+<p class="text-outline-variant text-body-md max-w-md">A scalable platform for developing premium websites for businesses with integrated AI chatbot, contact systems, analytics, SEO optimization, and deployment automation.</p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">React</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Node.js</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">PHP</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Vite</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">AI</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Business</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">Web</span>
+<span class="skill-tag px-3 py-1 rounded-full text-[10px] font-bold text-primary">AI</span>
+</div>
+<div class="flex gap-4 pt-2">
+<a class="magnetic-btn border border-white/10 bg-white/5 text-on-surface px-5 py-3 rounded-full font-label-sm text-label-sm hover:bg-white/5" href="https://github.com/krishnabal123" target="_blank" rel="noreferrer">GitHub</a>
+<a class="magnetic-btn bg-on-surface text-background px-5 py-3 rounded-full font-label-sm text-label-sm font-bold" href="#" target="_blank" rel="noreferrer">Case Study</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 flex justify-center">
+<button class="magnetic-btn border border-white/10 px-12 py-5 rounded-full font-label-sm text-label-sm hover:bg-white/5 flex items-center gap-4 group">
+                    Explore All Projects
+                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="relative py-section-gap bg-surface-container-lowest/20 overflow-hidden" id="experience">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-gutter">
+<div class="mb-24 space-y-4 reveal-on-scroll">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">Career Journey</span>
+<h2 class="font-display-xl text-display-xl text-on-surface">Experience Milestones</h2>
+</div>
+<div class="relative py-12">
+<div class="timeline-line">
+<div class="timeline-line-inner" id="experience-line"></div>
+</div>
+<div class="space-y-32">
+<!-- Milestone 1 -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-12 reveal-on-scroll">
+<div class="md:text-right md:pr-16 order-2 md:order-1">
+<span class="text-primary font-bold font-label-sm mb-2 block">2023 - Present</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Automation Systems Architect</h3>
+<p class="font-body-md text-outline-variant mt-4">Designing end-to-end automation pipelines for enterprise clients, integrating AI agents into existing CRM and ERP workflows.</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background z-20 hidden md:block"></div>
+<div class="order-1 md:order-2">
+<div class="glass-card p-8 rounded-3xl">
+<h4 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_fix_high</span>
+                                        Key Achievements
+                                    </h4>
+<ul class="space-y-3 font-label-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Reduced manual data processing by 85%</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Scaled automation suite to handle 1M+ tasks/mo</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-12 reveal-on-scroll">
+<div class="md:col-start-2 md:pl-16 order-2">
+<span class="text-tertiary font-bold font-label-sm mb-2 block">2021 - 2023</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Lead AI Developer</h3>
+<p class="font-body-md text-outline-variant mt-4">Leading specialized teams to develop LLM-integrated products, specializing in retrieval-augmented generation (RAG) and specialized fine-tuning.</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-0 w-4 h-4 rounded-full bg-tertiary border-4 border-background z-20 hidden md:block"></div>
+<div class="order-1">
+<div class="glass-card p-8 rounded-3xl">
+<h4 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+                                        Core Focus
+                                    </h4>
+<ul class="space-y-3 font-label-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> LLM Product Integration (OpenAI/Anthropic)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Vector Databases &amp; Semantic Search</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 gap-12 reveal-on-scroll">
+<div class="md:text-right md:pr-16 order-2 md:order-1">
+<span class="text-secondary font-bold font-label-sm mb-2 block">2019 - 2021</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Enterprise Software Engineer</h3>
+<p class="font-body-md text-outline-variant mt-4">Specializing in high-availability Laravel applications and secure microservices for financial and tech sectors.</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-0 w-4 h-4 rounded-full bg-secondary border-4 border-background z-20 hidden md:block"></div>
+<div class="order-1 md:order-2">
+<div class="glass-card p-8 rounded-3xl">
+<h4 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">terminal</span>
+                                        Tech Stack
+                                    </h4>
+<ul class="space-y-3 font-label-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Laravel &amp; Livewire Ecosystem</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Dockerized Deployment Pipelines</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-gutter py-section-gap" id="skills">
+<div class="mb-16 space-y-4">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">Expertise</span>
+<h2 class="font-display-xl text-display-xl text-on-surface">Skill Arsenal</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+<div class="glass-card p-6 rounded-3xl space-y-6 reveal-on-scroll">
+<span class="text-primary font-bold text-label-sm">Frontend</span>
+<div class="flex flex-wrap gap-2">
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">React</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Next.js</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Tailwind</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">TypeScript</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-3xl space-y-6 reveal-on-scroll" style="transition-delay: 0.1s">
+<span class="text-tertiary font-bold text-label-sm">Backend</span>
+<div class="flex flex-wrap gap-2">
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Laravel</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Django</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Node.js</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Python</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-3xl space-y-6 reveal-on-scroll" style="transition-delay: 0.2s">
+<span class="text-secondary font-bold text-label-sm">Database</span>
+<div class="flex flex-wrap gap-2">
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">MySQL</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">PostgreSQL</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Redis</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Pinecone</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-3xl space-y-6 reveal-on-scroll" style="transition-delay: 0.3s">
+<span class="text-primary font-bold text-label-sm">AI &amp; CV</span>
+<div class="flex flex-wrap gap-2">
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">OpenAI API</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">LangChain</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">OpenCV</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Stable Diffusion</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-3xl space-y-6 reveal-on-scroll" style="transition-delay: 0.4s">
+<span class="text-tertiary font-bold text-label-sm">DevOps</span>
+<div class="flex flex-wrap gap-2">
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">Docker</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">AWS</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">n8n</span>
+<span class="skill-tag px-3 py-1.5 rounded-lg text-[12px]">GitHub Actions</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="max-w-[1200px] mx-auto px-margin-mobile md:px-gutter py-section-gap" id="contact">
+<div class="glass-card p-12 md:p-24 rounded-[4rem] relative overflow-hidden reveal-on-scroll">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-tertiary/20 rounded-full blur-[100px]"></div>
+<div class="relative z-10 text-center space-y-12">
+<div class="space-y-4">
+<h2 class="font-display-2xl text-display-2xl text-on-surface">Let's build the future.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                            Available for select high-impact projects. Whether you're scaling a startup or digitizing an enterprise, let's create something extraordinary.
+                        </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="magnetic-btn bg-primary text-on-primary px-12 py-5 rounded-full font-label-sm text-label-sm font-bold" href="mailto:mail2krishnabal2004@gmail.com">Start a Project</a>
+<a class="magnetic-btn border border-white/20 text-on-surface px-12 py-5 rounded-full font-label-sm text-label-sm hover:bg-white/5" href="mailto:mail2krishnabal2004@gmail.com">Contact Me</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-white/5">
+<a class="flex flex-col items-center gap-3 group" href="https://github.com/krishnabal123" target="_blank" rel="noreferrer">
+<span class="text-label-sm text-outline-variant group-hover:text-primary transition-colors">GitHub</span>
+</a>
+<a class="flex flex-col items-center gap-3 group" href="https://www.linkedin.com/in/bal-krishna-825b68353/" target="_blank" rel="noreferrer">
+<span class="text-label-sm text-outline-variant group-hover:text-primary transition-colors">LinkedIn</span>
+</a>
+<a class="flex flex-col items-center gap-3 group" href="https://wa.me/917903574381" target="_blank" rel="noreferrer">
+<span class="text-label-sm text-outline-variant group-hover:text-primary transition-colors">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center gap-3 group" href="bal-krishna-resume.html" download>
+<span class="text-label-sm text-outline-variant group-hover:text-primary transition-colors">Resume</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 border-t border-white/5 relative z-10 bg-background">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-margin-mobile md:px-gutter gap-10">
+<div class="space-y-4 text-center md:text-left">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tighter">KRISHNA PATHAK</span>
+<p class="font-label-sm text-label-sm text-outline-variant">© 2024. Engineering excellence with AI &amp; Full Stack precision.</p>
+</div>
+<div class="flex gap-10">
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-primary transition-all" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-primary transition-all" href="#projects">Work</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-primary transition-all" href="#contact">Hire</a>
+</div>
+</div>
+</footer>
+<script>
+        // Magnetic Button Behavior
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = `translate(0px, 0px)`;
+            });
+        });
 
-  <!-- HERO -->
-  <section class="hero" id="about">
-    <div class="hero-bg-blobs" aria-hidden="true">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge">Available for work 🟢</div>
-      <h1 class="hero-title">
-        I build<br/>
-        <span class="highlight" id="rotating-word">SaaS platforms</span><br/>
-        that scale.
-      </h1>
-      <p class="hero-sub">Full-stack developer specializing in SaaS products, AI-powered tools, and enterprise web applications. From Laravel backends to React frontends — I ship end-to-end.</p>
-      <div class="hero-actions">
-        <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">See my work ↓</button>
-        <a href="#contact" class="btn-ghost">Let's talk</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Live projects</span></div>
-        <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Orgs contributed</span></div>
-        <div class="stat"><span class="stat-num">121+</span><span class="stat-label">Commits shipped</span></div>
-      </div>
-    </div>
-    <div class="hero-image">
-      <div class="avatar-ring">
-        <div class="avatar-inner">
-          <div class="avatar-placeholder">KB</div>
-        </div>
-      </div>
-      <div class="floating-tag tag-1">Laravel</div>
-      <div class="floating-tag tag-2">React</div>
-      <div class="floating-tag tag-3">Django</div>
-    </div>
-  </section>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-  <!-- WORK -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Selected work</span>
-        <h2 class="section-title">Projects I've shipped</h2>
-      </div>
-      <div class="projects-grid">
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
 
-        <!-- CreditYoda - Featured -->
-        <article class="project-card project-featured reveal">
-          <div class="project-visual pv-purple">
-            <div class="mock-browser">
-              <div class="mock-bar"><span></span><span></span><span></span></div>
-              <div class="mock-screen mock-screen-credit">
-                <div class="mock-score">742</div>
-                <div class="mock-bar-item"><div class="mock-bar-fill" style="width:74%;background:linear-gradient(90deg,#7F77DD,#5DCAA5)"></div></div>
-                <div class="mock-bar-item"><div class="mock-bar-fill" style="width:55%;background:rgba(127,119,221,0.5)"></div></div>
-                <div class="mock-bar-item"><div class="mock-bar-fill" style="width:88%;background:rgba(29,158,117,0.5)"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Django REST</span>
-              <span class="tag">React 18</span>
-              <span class="tag tag-green">PostgreSQL</span>
-              <span class="tag tag-coral">Razorpay</span>
-              <span class="tag tag-amber">Docker</span>
-            </div>
-            <h3 class="project-title">CreditYoda</h3>
-            <p class="project-desc">Full-stack credit score improvement platform. Users log in via WhatsApp OTP, fetch their credit report from the bureau, and get AI-generated insights, an improvement plan, and score history tracking. Includes an admin CRM portal for internal teams.</p>
-            <div class="project-links">
-              <a href="https://github.com/CreditYoda-AI/credityoda" target="_blank" class="link-code">GitHub ↗</a>
-            </div>
-          </div>
-        </article>
+        document.querySelectorAll('.reveal-on-scroll, .glass-card, .tilt-card').forEach(el => {
+            observer.observe(el);
+        });
 
-        <!-- Unicel Autotech -->
-        <article class="project-card reveal">
-          <div class="project-visual pv-teal">
-            <div class="mock-browser">
-              <div class="mock-bar"><span></span><span></span><span></span></div>
-              <div class="mock-screen mock-screen-dash">
-                <div class="mock-dash-row">
-                  <div class="mock-dash-card"></div>
-                  <div class="mock-dash-card"></div>
-                  <div class="mock-dash-card"></div>
-                </div>
-                <div class="mock-dash-list">
-                  <div class="mock-dash-line" style="width:90%"></div>
-                  <div class="mock-dash-line" style="width:70%"></div>
-                  <div class="mock-dash-line" style="width:80%"></div>
-                  <div class="mock-dash-line" style="width:60%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Laravel</span>
-              <span class="tag">PHP</span>
-              <span class="tag tag-green">Filament</span>
-              <span class="tag tag-amber">Tailwind</span>
-            </div>
-            <h3 class="project-title">Unicel Autotech</h3>
-            <p class="project-desc">DG Set Aggregator platform for India. Built for internal teams with four role-based dashboards — Admin, Customer, Manager, and ServiceMan — using Laravel, Filament, and Spatie for permissions.</p>
-            <div class="project-links">
-              <a href="https://unicel.autotech.com" target="_blank" class="link-live">unicel.autotech.com ↗</a>
-              <a href="https://github.com/webshot-digital/unicel-autotech" target="_blank" class="link-code">GitHub</a>
-            </div>
-          </div>
-        </article>
+        // 3D Tilt Effect for Project Cards
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+        });
 
-        <!-- All-in-One Software -->
-        <article class="project-card reveal">
-          <div class="project-visual pv-amber">
-            <div class="mock-browser">
-              <div class="mock-bar"><span></span><span></span><span></span></div>
-              <div class="mock-screen mock-screen-dash">
-                <div class="mock-dash-row">
-                  <div class="mock-dash-card" style="background:rgba(186,117,23,0.2)"></div>
-                  <div class="mock-dash-card"></div>
-                </div>
-                <div class="mock-dash-list">
-                  <div class="mock-dash-line" style="width:95%;background:rgba(186,117,23,0.3)"></div>
-                  <div class="mock-dash-line" style="width:75%"></div>
-                  <div class="mock-dash-line" style="width:60%"></div>
-                  <div class="mock-dash-line" style="width:85%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Django</span>
-              <span class="tag tag-green">Celery</span>
-              <span class="tag tag-amber">Docker</span>
-              <span class="tag tag-coral">Nginx</span>
-            </div>
-            <h3 class="project-title">All-in-One Software</h3>
-            <p class="project-desc">Enterprise-grade all-in-one business management platform built with Django, Celery for task queuing, Docker Compose for containerization, and Nginx for production deployment.</p>
-            <div class="project-links">
-              <a href="https://github.com/webshot-digital/all-in-one-software" target="_blank" class="link-code">GitHub ↗</a>
-            </div>
-          </div>
-        </article>
+        // Timeline Growth Animation on Scroll
+        const experienceLine = document.getElementById('experience-line');
+        const experienceSection = document.getElementById('experience');
 
-        <!-- Chatbot SaaS -->
-        <article class="project-card reveal">
-          <div class="project-visual pv-coral">
-            <div class="mock-browser">
-              <div class="mock-bar"><span></span><span></span><span></span></div>
-              <div class="mock-screen mock-screen-chat">
-                <div class="mock-bubble bot">Hi! How can I help you today?</div>
-                <div class="mock-bubble user">Tell me about pricing</div>
-                <div class="mock-bubble bot">Sure! Here are our plans...</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Django</span>
-              <span class="tag tag-coral">HTML/CSS</span>
-              <span class="tag tag-green">AI</span>
-            </div>
-            <h3 class="project-title">Chatbot SaaS</h3>
-            <p class="project-desc">Custom AI chatbot platform for websites. Embeddable widget that businesses can deploy on their sites, powered by a Django backend with intelligent conversation handling.</p>
-            <div class="project-links">
-              <a href="https://github.com/webshot-digital/chatbot-saas" target="_blank" class="link-code">GitHub ↗</a>
-            </div>
-          </div>
-        </article>
+        window.addEventListener('scroll', () => {
+            if (!experienceSection) return;
+            
+            const rect = experienceSection.getBoundingClientRect();
+            const sectionHeight = rect.height;
+            const scrollPosition = -rect.top + (window.innerHeight / 1.5);
+            
+            let progress = (scrollPosition / sectionHeight) * 100;
+            progress = Math.max(0, Math.min(100, progress));
+            
+            if (experienceLine) {
+                experienceLine.style.height = `${progress}%`;
+            }
+        });
 
-        <!-- Group North America Websites -->
-        <article class="project-card reveal">
-          <div class="project-visual pv-pink">
-            <div class="mock-browser">
-              <div class="mock-bar"><span></span><span></span><span></span></div>
-              <div class="mock-screen mock-screen-map">
-                <div class="mock-dash-line" style="width:60%;background:rgba(216,90,200,0.3);margin-bottom:6px"></div>
-                <div class="mock-map-grid">
-                  <div class="mock-map-cell active"></div>
-                  <div class="mock-map-cell"></div>
-                  <div class="mock-map-cell active"></div>
-                  <div class="mock-map-cell"></div>
-                  <div class="mock-map-cell active"></div>
-                  <div class="mock-map-cell"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">Vite</span>
-              <span class="tag tag-coral">PHP</span>
-              <span class="tag tag-amber">JavaScript</span>
-            </div>
-            <h3 class="project-title">Group North America Websites</h3>
-            <p class="project-desc">Multi-site web presence for Group North America, built with React + Vite and a PHP SMTP mail server for contact forms. Deployed on Hostinger with 5 active branches.</p>
-            <div class="project-links">
-              <a href="https://github.com/webshot-digital/group-north-america_websites" target="_blank" class="link-code">GitHub ↗</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section section-dark" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">What I work with</span>
-        <h2 class="section-title">Skills & tools</h2>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Frontend</h3>
-          <div class="skill-pills">
-            <span class="pill pill-purple">React 18</span>
-            <span class="pill pill-purple">Vite</span>
-            <span class="pill pill-purple">TailwindCSS</span>
-            <span class="pill pill-purple">JavaScript</span>
-            <span class="pill pill-purple">TypeScript</span>
-            <span class="pill pill-purple">HTML/CSS</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Backend</h3>
-          <div class="skill-pills">
-            <span class="pill pill-teal">Laravel</span>
-            <span class="pill pill-teal">Django REST</span>
-            <span class="pill pill-teal">Python</span>
-            <span class="pill pill-teal">PHP</span>
-            <span class="pill pill-teal">PostgreSQL</span>
-            <span class="pill pill-teal">Celery</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">DevOps & tools</h3>
-          <div class="skill-pills">
-            <span class="pill pill-coral">Docker</span>
-            <span class="pill pill-coral">Nginx</span>
-            <span class="pill pill-coral">Vercel</span>
-            <span class="pill pill-coral">Hostinger</span>
-            <span class="pill pill-coral">Git</span>
-            <span class="pill pill-coral">Razorpay</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Get in touch</span>
-        <h2 class="section-title">Let's build something</h2>
-      </div>
-      <div class="contact-layout reveal">
-        <div class="contact-text">
-          <p>Have a project in mind? I specialize in building SaaS platforms, AI-powered tools, and full-stack web applications. Let's talk.</p>
-          <div class="contact-links">
-            <a href="mailto:you@email.com" class="contact-item">✉️ &nbsp;you@email.com</a>
-            <a href="https://github.com/krishnabal123" target="_blank" class="contact-item">💻 &nbsp;github.com/krishnabal123</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-item">🔗 &nbsp;LinkedIn</a>
-          </div>
-        </div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Your name" required /></div>
-          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="your@email.com" required /></div>
-          <div class="form-group"><label for="message">Message</label><textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea></div>
-          <button type="submit" class="btn-primary btn-full" id="submit-btn">Send message →</button>
-          <p class="form-success" id="form-success">Thanks! I'll get back to you soon. 🎉</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="nav-logo" style="font-family:var(--mono);font-weight:700">Krishna<span class="dot">.</span></span>
-      <p>Built with ❤️ — <span id="year"></span></p>
-      <div class="footer-links">
-        <a href="https://github.com/krishnabal123" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const words = ['SaaS platforms', 'AI chatbots', 'credit tools', 'web apps', 'dashboards'];
-let wordIdx = 0;
-const rotatingEl = document.getElementById('rotating-word');
-rotatingEl.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-setInterval(() => {
-  rotatingEl.style.opacity = '0';
-  rotatingEl.style.transform = 'translateY(8px)';
-  setTimeout(() => {
-    wordIdx = (wordIdx + 1) % words.length;
-    rotatingEl.textContent = words[wordIdx];
-    rotatingEl.style.opacity = '1';
-    rotatingEl.style.transform = 'translateY(0)';
-  }, 300);
-}, 2500);
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 100);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-    e.target.reset();
-  }, 1200);
-}
-
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.offsetTop - 100;
-    if (window.scrollY >= top && window.scrollY < top + section.offsetHeight) {
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === '#' + section.id ? '#f0eff8' : '';
-      });
-    }
-  });
-}, { passive: true });
-  </script>
-</body>
-</html>
+        // Smooth scroll for hero CTA
+        const viewProjectsLink = document.getElementById('view-projects-link');
+        if (viewProjectsLink) {
+            viewProjectsLink.addEventListener('click', (event) => {
+                const projectsSection = document.getElementById('projects');
+                if (!projectsSection) return;
+                event.preventDefault();
+                projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    </script>
+</body></html>
