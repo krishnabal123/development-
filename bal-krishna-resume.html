@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bal Krishna — Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:       #0D0D0D;
+    --ink-mid:   #2A2A2A;
+    --ink-soft:  #5A5A5A;
+    --rule:      #1A1A1A;
+    --accent:    #C8A96E;   /* muted gold — gravitas without flash */
+    --accent2:   #2D5A8E;   /* steel blue — tech credibility */
+    --bg:        #F7F5F1;
+    --col-left:  260px;
+  }
+
+  html { font-size: 13px; }
+
+  body {
+    width: 900px;
+    margin: 0 auto;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ─── MASTHEAD ─────────────────────────────────────────── */
+  .masthead {
+    background: var(--ink);
+    padding: 44px 50px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .masthead-name h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .masthead-name h1 span {
+    color: var(--accent);
+  }
+
+  .title-line {
+    margin-top: 10px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .title-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(200,169,110,0.12);
+    border: 1px solid rgba(200,169,110,0.35);
+    padding: 4px 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .masthead-contact {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .masthead-contact a,
+  .masthead-contact span {
+    display: block;
+    color: #B0B0B0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  .masthead-contact a:hover { color: var(--accent); }
+
+  /* ─── GOLD RULE ─────────────────────────────────────────── */
+  .gold-rule {
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 60%, var(--bg) 100%);
+  }
+
+  /* ─── BODY LAYOUT ───────────────────────────────────────── */
+  .body-wrap {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* ─── SIDEBAR ───────────────────────────────────────────── */
+  .sidebar {
+    width: var(--col-left);
+    flex-shrink: 0;
+    background: #131313;
+    color: #CCCCCC;
+    padding: 36px 28px;
+    min-height: 100%;
+  }
+
+  .sb-section { margin-bottom: 34px; }
+
+  .sb-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border-bottom: 1px solid #2A2A2A;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
+  .sb-item {
+    margin-bottom: 10px;
+  }
+
+  .sb-skill-name {
+    font-size: 0.76rem;
+    color: #E0E0E0;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .sb-bar-track {
+    height: 2px;
+    background: #2A2A2A;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .sb-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+  }
+
+  .sb-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sb-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: #A0A0A0;
+    background: #1E1E1E;
+    border: 1px solid #2D2D2D;
+    padding: 3px 7px;
+    line-height: 1.4;
+  }
+
+  .sb-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .sb-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .sb-stat-label {
+    font-size: 0.7rem;
+    color: #888;
+    line-height: 1.3;
+  }
+
+  .sb-contact-item {
+    font-size: 0.72rem;
+    color: #999;
+    margin-bottom: 7px;
+    word-break: break-all;
+  }
+
+  .sb-contact-item strong {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1px;
+  }
+
+  /* ─── MAIN CONTENT ──────────────────────────────────────── */
+  .main {
+    flex: 1;
+    padding: 36px 42px 40px 38px;
+  }
+
+  /* Section header */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    margin-top: 28px;
+  }
+
+  .section-head:first-child { margin-top: 0; }
+
+  .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    opacity: 0.12;
+  }
+
+  /* Summary */
+  .summary-text {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* Experience entry */
+  .exp-entry { margin-bottom: 22px; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2px;
+  }
+
+  .exp-role {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent2);
+    font-weight: 500;
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .exp-company {
+    font-size: 0.74rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-bullets li {
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Projects grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .project-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 14px 16px;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+  }
+
+  .project-name {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+    padding-left: 8px;
+  }
+
+  .project-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    padding-left: 8px;
+  }
+
+  .project-desc {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    padding-left: 8px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 9px;
+    padding-left: 8px;
+  }
+
+  .project-tags span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    background: #F0EEE9;
+    color: var(--ink-soft);
+    padding: 2px 6px;
+    border: 1px solid #E0DDD7;
+  }
+
+  /* Achievements */
+  .achieve-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+  }
+
+  .achieve-list li {
+    font-size: 0.76rem;
+    color: var(--ink-mid);
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .achieve-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.5rem;
+    top: 3px;
+  }
+
+  /* Education */
+  .edu-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-left: 3px solid var(--accent2);
+  }
+
+  .edu-deg {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .edu-uni {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  .edu-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent2);
+    font-weight: 500;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* Leadership */
+  .lead-block {
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-top: 2px solid var(--accent);
+    padding: 14px 16px;
+  }
+
+  .lead-title {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .lead-org {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .lead-bullets { list-style: none; }
+
+  .lead-bullets li {
+    font-size: 0.75rem;
+    color: var(--ink-mid);
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .lead-bullets li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  /* ─── FOOTER STRIP ──────────────────────────────────────── */
+  .footer-strip {
+    background: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+  }
+
+  .footer-strip span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: #444;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-strip span.gold {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-name">
+    <h1>Bal <span>Krishna</span></h1>
+    <div class="title-line">
+      <span class="title-pill">Full Stack Developer</span>
+      <span class="title-pill">AI Automation</span>
+      <span class="title-pill">Laravel · React · Python</span>
+    </div>
+  </div>
+  <div class="masthead-contact">
+    <a href="mailto:mail2krishnabal2004@gmail.com">mail2krishnabal2004@gmail.com</a>
+    <span>+91 7903574381</span>
+    <a href="https://github.com/krishnabal123">github.com/krishnabal123</a>
+    <a href="https://linkedin.com/in/bal-krishna-825b68353">linkedin.com/in/bal-krishna-825b68353</a>
+    <span>Delhi, India</span>
+  </div>
+</div>
+<div class="gold-rule"></div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="sb-section">
+      <div class="sb-label">Career Stats</div>
+      <div class="sb-stat">
+        <span class="sb-stat-num">5+</span>
+        <span class="sb-stat-label">Production repos shipped & maintained</span>
+      </div>
+      <div class="sb-stat">
+        <span class="sb-stat-num">250+</span>
+        <span class="sb-stat-label">DSA problems solved</span>
+      </div>
+      <div class="sb-stat">
+        <span class="sb-stat-num">121</span>
+        <span class="sb-stat-label">Commits on Unicel Autotech alone</span>
+      </div>
+      <div class="sb-stat">
+        <span class="sb-stat-num">5</span>
+        <span class="sb-stat-label">Panels built in Unicel Autotech</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Core Stack</div>
+      <div class="sb-item">
+        <div class="sb-skill-name">Laravel / PHP</div>
+        <div class="sb-bar-track"><div class="sb-bar-fill" style="width:94%"></div></div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-skill-name">React / JavaScript</div>
+        <div class="sb-bar-track"><div class="sb-bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-skill-name">Python / Django</div>
+        <div class="sb-bar-track"><div class="sb-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-skill-name">MySQL / PostgreSQL</div>
+        <div class="sb-bar-track"><div class="sb-bar-fill" style="width:87%"></div></div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-skill-name">Docker / DevOps</div>
+        <div class="sb-bar-track"><div class="sb-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="sb-item">
+        <div class="sb-skill-name">AI / Automation (n8n, APIs)</div>
+        <div class="sb-bar-track"><div class="sb-bar-fill" style="width:90%"></div></div>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Frameworks & Tools</div>
+      <div class="sb-tag-cloud">
+        <span class="sb-tag">Filament v3</span>
+        <span class="sb-tag">Livewire</span>
+        <span class="sb-tag">Vite</span>
+        <span class="sb-tag">Next.js</span>
+        <span class="sb-tag">FastAPI</span>
+        <span class="sb-tag">Celery</span>
+        <span class="sb-tag">Redis</span>
+        <span class="sb-tag">Nginx</span>
+        <span class="sb-tag">GitHub CI/CD</span>
+        <span class="sb-tag">AWS EC2</span>
+        <span class="sb-tag">Vercel</span>
+        <span class="sb-tag">Hostinger</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">AI & Automation</div>
+      <div class="sb-tag-cloud">
+        <span class="sb-tag">OpenAI APIs</span>
+        <span class="sb-tag">Gemini APIs</span>
+        <span class="sb-tag">n8n Workflows</span>
+        <span class="sb-tag">Prompt Eng.</span>
+        <span class="sb-tag">LangChain</span>
+        <span class="sb-tag">RAG Systems</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Databases</div>
+      <div class="sb-tag-cloud">
+        <span class="sb-tag">MySQL</span>
+        <span class="sb-tag">PostgreSQL</span>
+        <span class="sb-tag">SQLite</span>
+        <span class="sb-tag">Redis</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Languages</div>
+      <div class="sb-tag-cloud">
+        <span class="sb-tag">PHP</span>
+        <span class="sb-tag">Python</span>
+        <span class="sb-tag">JavaScript</span>
+        <span class="sb-tag">TypeScript</span>
+        <span class="sb-tag">SQL</span>
+        <span class="sb-tag">HTML5</span>
+        <span class="sb-tag">CSS3</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Links</div>
+      <div class="sb-contact-item">
+        <strong>GitHub</strong>
+        github.com/krishnabal123
+      </div>
+      <div class="sb-contact-item">
+        <strong>LinkedIn</strong>
+        linkedin.com/in/bal-krishna-825b68353
+      </div>
+      <div class="sb-contact-item">
+        <strong>Portfolio</strong>
+        webshot.in
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- SUMMARY -->
+    <div class="section-head"><h2>Profile</h2></div>
+    <p class="summary-text">
+      Software developer with demonstrated expertise in architecting and delivering enterprise web applications, AI-powered platforms, and large-scale automation systems. Proficient across the full stack — from multi-panel Laravel/Filament backends and React frontends to Python/Django services, Docker-based deployments, and intelligent workflow automation using OpenAI and Gemini APIs. Consistently delivers production-ready systems for real client environments, with a record of turning complex business requirements into clean, maintainable, and scalable software.
+    </p>
+
+    <!-- EXPERIENCE -->
+    <div class="section-head"><h2>Experience</h2></div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <div class="exp-role">Software Developer</div>
+        <div class="exp-date">FEB 2026 – PRESENT</div>
+      </div>
+      <div class="exp-company">Webshot Digital · Noida, India</div>
+      <ul class="exp-bullets">
+        <li>Architect and deliver enterprise-grade Laravel applications serving real client workflows across multi-panel admin systems, customer portals, and vendor dashboards.</li>
+        <li>Design and implement scalable REST APIs with role-based access control, event-driven notifications, and automated business logic (preventive maintenance cycles, SLA workflows).</li>
+        <li>Build production dashboards using Laravel 12 + Filament v3 + Livewire, integrating CSV import/export, activity logs, ticket management, and SMTP notification pipelines.</li>
+        <li>Integrate AI services (OpenAI, Gemini) into client-facing SaaS platforms for intelligent content generation, credit analysis, and competitive intelligence.</li>
+        <li>Develop and maintain n8n automation pipelines connecting Google News, WordPress, Telegram, and AI content APIs, reducing manual marketing effort by significant margins.</li>
+        <li>Own end-to-end deployment: Linux production servers, Nginx configuration, GitHub Actions CI/CD, Docker Compose, and zero-downtime release workflows.</li>
+        <li>Lead technical communication across designers, clients, and cross-functional developers; translate business requirements into precise engineering specifications.</li>
+      </ul>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-header">
+        <div class="exp-role">Freelance Full Stack Developer</div>
+        <div class="exp-date">2021 – 2026</div>
+      </div>
+      <div class="exp-company">Independent · Remote</div>
+      <ul class="exp-bullets">
+        <li>Designed and shipped multiple client websites, e-commerce platforms, and custom business tools across PHP, React, and Python stacks.</li>
+        <li>Delivered branding, SEO, and digital marketing assets for small-to-medium businesses across India.</li>
+        <li>Built chatbot-based lead generation systems, embeddable JS widgets, and webhook-driven automation flows integrated with CRMs and communication tools.</li>
+      </ul>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section-head"><h2>Featured Projects</h2></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-name">Unicel Autotech</div>
+        <div class="project-sub">Enterprise DG Site Management Platform</div>
+        <div class="project-desc">Five-panel enterprise platform for diesel generator lifecycle management — Admin, Manager, Service, Customer, and Vendor. Built ticket management, preventive maintenance scheduling (60-day cycles), GPS tracking, runtime monitoring, multi-stage SMTP notifications, activity logs, and native CSV exports. 121 commits on production branch.</div>
+        <div class="project-tags">
+          <span>Laravel 12</span><span>Filament v3</span><span>Livewire</span><span>MySQL</span><span>Gmail SMTP</span><span>Spatie RBAC</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">CreditYoda</div>
+        <div class="project-sub">AI-Powered Credit Analysis Platform</div>
+        <div class="project-desc">Full-stack credit intelligence platform with Phone OTP login (WhatsApp/SMS), credit report fetch via Razorpay/Roopayi bureau, AI-generated insights and improvement plans, score history tracking, portfolio summary, and a complete Admin CRM portal with pipeline breakdown, per-user AI insights, and role management.</div>
+        <div class="project-tags">
+          <span>Django REST</span><span>React 18</span><span>PostgreSQL</span><span>Docker</span><span>Razorpay</span><span>OpenAI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">AIWebsiteIQ (All-in-One Software)</div>
+        <div class="project-sub">Multi-Tenant Website Intelligence SaaS</div>
+        <div class="project-desc">Production SaaS platform with website scraping, AI report generation (Gemini), embeddable JS chatbot widget using Shadow DOM isolation, competitor monitoring, analytics dashboard, and PDF/JSON export. Fully Dockerized with Celery workers, Celerybeat scheduler, Nginx reverse proxy, and production deployment guides.</div>
+        <div class="project-tags">
+          <span>Django</span><span>Docker Compose</span><span>Celery</span><span>Nginx</span><span>Gemini API</span><span>Shadow DOM</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Chatbot SaaS</div>
+        <div class="project-sub">Custom AI Chatbot for Websites</div>
+        <div class="project-desc">Custom AI chatbot system built for website embedding, with a Django backend, intelligent response engine, SQLite persistence layer, and embeddable HTML widget. Architected to serve as a plug-and-play customer support and lead capture solution for business websites.</div>
+        <div class="project-tags">
+          <span>Django</span><span>Python</span><span>HTML</span><span>SQLite</span><span>AI Integration</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Group North America Websites</div>
+        <div class="project-sub">Multi-Brand Corporate Web Platform</div>
+        <div class="project-desc">Multi-branch React + Vite corporate website suite with 5 branches, 46 commits, and 3 active contributors. Features a dependency-free PHP SMTP contact mailer (raw socket, no PHPMailer), responsive UI across FMCG and business brand pages, and Hostinger shared-hosting deployment.</div>
+        <div class="project-tags">
+          <span>React 19</span><span>Vite</span><span>PHP</span><span>CSS Modules</span><span>Hostinger</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">InventIQ</div>
+        <div class="project-sub">Multi-Store Inventory Management SaaS</div>
+        <div class="project-desc">Architected a Django 5 multi-store inventory system for a 4-location retail business with SaaS multi-tenancy path. UUID PKs, tenant isolation middleware, soft-delete, RBAC (6 roles), INR/GST support, Asia/Kolkata timezone, and Redis + Celery async stack.</div>
+        <div class="project-tags">
+          <span>Django 5</span><span>PostgreSQL</span><span>Redis</span><span>Celery</span><span>RBAC</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EDUCATION + ACHIEVEMENTS row -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:4px;">
+      <div>
+        <div class="section-head"><h2>Education</h2></div>
+        <div class="edu-block">
+          <div>
+            <div class="edu-deg">B.Tech — Computer Science</div>
+            <div class="edu-uni">Graphic Era Hill University</div>
+          </div>
+          <div class="edu-year">2021 – 2025</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-head"><h2>Leadership</h2></div>
+        <div class="lead-block">
+          <div class="lead-title">Head of NSS</div>
+          <div class="lead-org">Graphic Era Hill University</div>
+          <ul class="lead-bullets">
+            <li>Managed 2,000+ student volunteers across 40+ events.</li>
+            <li>Collaborated with 15+ NGOs on community programs.</li>
+            <li>Designed a skill-based student management system.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="section-head"><h2>Achievements</h2></div>
+    <ul class="achieve-list">
+      <li>Solved 250+ DSA problems across LeetCode, GeeksforGeeks & CodeStudio</li>
+      <li>Architected and deployed multiple enterprise-grade SaaS platforms</li>
+      <li>Built production AI automation pipelines saving 10+ hours/week</li>
+      <li>Delivered multi-panel ERP systems for active industrial clients</li>
+      <li>Full AWS architecture: EC2, RDS, S3, ElastiCache, GitHub CI/CD</li>
+      <li>Shadow DOM isolation technique for zero-conflict widget embedding</li>
+    </ul>
+
+  </div><!-- /main -->
+</div><!-- /body-wrap -->
+
+<!-- FOOTER -->
+<div class="footer-strip">
+  <span>BAL KRISHNA · FULL STACK DEVELOPER</span>
+  <span class="gold">Available for senior engineering & AI roles · 2026</span>
+  <span>mail2krishnabal2004@gmail.com</span>
+</div>
+
+</body>
+</html>
