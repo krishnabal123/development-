@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Developer Portfolio</title>
+  <meta name="description" content="Web & App Developer crafting fast, beautiful digital experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">YN<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire me</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="hero-bg-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Available for work 🟢</div>
+      <h1 class="hero-title">
+        I build<br/>
+        <span class="highlight-rotate" id="rotating-word">web apps</span><br/>
+        people love.
+      </h1>
+      <p class="hero-sub">Full-stack developer crafting fast, accessible, and delightful digital experiences. Turning ideas into products that actually ship.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">See my work ↓</button>
+        <a href="#contact" class="btn-ghost">Let's talk</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Projects shipped</span></div>
+        <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years experience</span></div>
+        <div class="stat"><span class="stat-num">8</span><span class="stat-label">Happy clients</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <!-- Replace src with your own photo -->
+          <div class="avatar-placeholder">YN</div>
+        </div>
+      </div>
+      <div class="floating-tag tag-1">React</div>
+      <div class="floating-tag tag-2">Node.js</div>
+      <div class="floating-tag tag-3">TypeScript</div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Selected work</span>
+        <h2 class="section-title">Projects I'm proud of</h2>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card project-featured">
+          <div class="project-visual pv-purple">
+            <div class="project-mockup">
+              <div class="mock-browser">
+                <div class="mock-bar"><span></span><span></span><span></span></div>
+                <div class="mock-screen"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <h3 class="project-title">Project Alpha</h3>
+            <p class="project-desc">A full-stack SaaS dashboard that helps teams track their KPIs in real time. Built with a React frontend, Node.js API, and PostgreSQL database.</p>
+            <div class="project-links">
+              <a href="#" class="link-live">Live ↗</a>
+              <a href="#" class="link-code">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv-coral">
+            <div class="project-mockup">
+              <div class="mock-phone">
+                <div class="mock-phone-screen"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Firebase</span>
+            </div>
+            <h3 class="project-title">Project Beta</h3>
+            <p class="project-desc">A cross-platform mobile app for habit tracking with push notifications and analytics dashboard.</p>
+            <div class="project-links">
+              <a href="#" class="link-live">App Store ↗</a>
+              <a href="#" class="link-code">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv-teal">
+            <div class="project-mockup">
+              <div class="mock-browser">
+                <div class="mock-bar"><span></span><span></span><span></span></div>
+                <div class="mock-screen"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Stripe</span>
+            </div>
+            <h3 class="project-title">Project Gamma</h3>
+            <p class="project-desc">An e-commerce storefront with server-side rendering, Stripe payments, and a custom CMS for product management.</p>
+            <div class="project-links">
+              <a href="#" class="link-live">Live ↗</a>
+              <a href="#" class="link-code">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual pv-amber">
+            <div class="project-mockup">
+              <div class="mock-browser">
+                <div class="mock-bar"><span></span><span></span><span></span></div>
+                <div class="mock-screen"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Vue.js</span>
+              <span class="tag">Express</span>
+            </div>
+            <h3 class="project-title">Project Delta</h3>
+            <p class="project-desc">A collaborative project management tool with real-time updates, file sharing, and Slack integration.</p>
+            <div class="project-links">
+              <a href="#" class="link-live">Live ↗</a>
+              <a href="#" class="link-code">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-dark" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What I work with</span>
+        <h2 class="section-title">Skills & tools</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3 class="skill-group-title">Frontend</h3>
+          <div class="skill-pills">
+            <span class="pill pill-purple">React</span>
+            <span class="pill pill-purple">Next.js</span>
+            <span class="pill pill-purple">Vue.js</span>
+            <span class="pill pill-purple">TypeScript</span>
+            <span class="pill pill-purple">Tailwind CSS</span>
+            <span class="pill pill-purple">React Native</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Backend</h3>
+          <div class="skill-pills">
+            <span class="pill pill-teal">Node.js</span>
+            <span class="pill pill-teal">Express</span>
+            <span class="pill pill-teal">Python</span>
+            <span class="pill pill-teal">PostgreSQL</span>
+            <span class="pill pill-teal">MongoDB</span>
+            <span class="pill pill-teal">Redis</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">DevOps & tools</h3>
+          <div class="skill-pills">
+            <span class="pill pill-coral">Vercel</span>
+            <span class="pill pill-coral">Docker</span>
+            <span class="pill pill-coral">AWS</span>
+            <span class="pill pill-coral">Git</span>
+            <span class="pill pill-coral">CI/CD</span>
+            <span class="pill pill-coral">Firebase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Get in touch</span>
+        <h2 class="section-title">Let's build something</h2>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-text">
+          <p>Have a project in mind? I'd love to hear about it. Whether it's a full product build, a quick fix, or just a chat about tech — my inbox is open.</p>
+          <div class="contact-links">
+            <a href="mailto:you@email.com" class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <span>you@email.com</span>
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" class="contact-item">
+              <span class="contact-icon">💻</span>
+              <span>github.com/yourusername</span>
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-item">
+              <span class="contact-icon">🔗</span>
+              <span>linkedin.com/in/yourusername</span>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="submit-btn">Send message →</button>
+          <p class="form-success" id="form-success">Thanks! I'll get back to you soon. 🎉</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="nav-logo">YN<span class="dot">.</span></span>
+      <p>Designed & built with ❤️ — <span id="year"></span></p>
+      <div class="footer-links">
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
