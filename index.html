@@ -8,11 +8,167 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --purple: #7F77DD; --purple-light: #EEEDFE; --purple-dark: #3C3489;
+  --teal: #1D9E75; --teal-light: #E1F5EE;
+  --coral: #D85A30; --coral-light: #FAECE7;
+  --amber: #BA7517; --amber-light: #FAEEDA;
+  --dark: #0f0f13; --dark-2: #16161d; --dark-3: #1e1e27;
+  --text: #f0eff8; --text-muted: #9998b0;
+  --border: rgba(255,255,255,0.08);
+  --font: 'Space Grotesk', sans-serif;
+  --mono: 'Space Mono', monospace;
+  --radius: 14px; --radius-lg: 24px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(15,15,19,0.85); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--border); }
+.nav-logo { font-family: var(--mono); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.dot { color: var(--purple); }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { font-size: 0.9rem; color: var(--text-muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { background: var(--purple); color: #fff; border: none; padding: 0.5rem 1.25rem; border-radius: 100px; font-family: var(--font); font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+.nav-cta:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 7rem 2rem 4rem; max-width: 1200px; margin: 0 auto; gap: 3rem; position: relative; overflow: hidden; }
+.hero-bg-blobs { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+.blob-1 { width: 500px; height: 500px; background: var(--purple); top: -100px; left: -100px; animation: blobFloat 8s ease-in-out infinite; }
+.blob-2 { width: 400px; height: 400px; background: var(--teal); bottom: -50px; right: 10%; animation: blobFloat 10s ease-in-out infinite reverse; }
+.blob-3 { width: 300px; height: 300px; background: var(--coral); top: 30%; right: 30%; animation: blobFloat 7s ease-in-out infinite 2s; }
+@keyframes blobFloat { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(20px,-20px) scale(1.05); } 66% { transform: translate(-15px,15px) scale(0.97); } }
+.hero-content { flex: 1; max-width: 600px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: 100px; border: 0.5px solid rgba(29,158,117,0.4); background: rgba(29,158,117,0.1); color: #5DCAA5; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+.hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+.highlight-rotate { background: linear-gradient(135deg, var(--purple) 0%, var(--coral) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; }
+.hero-sub { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; margin-bottom: 2rem; line-height: 1.7; }
+.hero-actions { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+.btn-primary { background: var(--purple); color: #fff; border: none; padding: 0.8rem 1.75rem; border-radius: 100px; font-family: var(--font); font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); }
+.btn-ghost { color: var(--text-muted); font-size: 0.95rem; padding: 0.8rem 1rem; border-radius: 100px; transition: color 0.2s; }
+.btn-ghost:hover { color: var(--text); }
+.btn-full { width: 100%; text-align: center; }
+.hero-stats { display: flex; gap: 2.5rem; }
+.stat { display: flex; flex-direction: column; }
+.stat-num { font-size: 1.75rem; font-weight: 700; font-family: var(--mono); color: var(--text); }
+.stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+/* HERO IMAGE */
+.hero-image { flex-shrink: 0; position: relative; width: 320px; height: 320px; }
+.avatar-ring { width: 280px; height: 280px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--teal), var(--coral)); padding: 3px; animation: ringRotate 8s linear infinite; }
+@keyframes ringRotate { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
+.avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: var(--dark-2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.avatar-inner img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-placeholder { font-family: var(--mono); font-size: 3rem; font-weight: 700; color: var(--purple); }
+.floating-tag { position: absolute; background: var(--dark-3); border: 0.5px solid var(--border); border-radius: 100px; padding: 0.35rem 0.85rem; font-size: 0.78rem; font-weight: 500; white-space: nowrap; animation: tagFloat 4s ease-in-out infinite; }
+.tag-1 { top: 10px; right: -20px; color: #AFA9EC; border-color: rgba(127,119,221,0.3); animation-delay: 0s; }
+.tag-2 { bottom: 60px; right: -30px; color: #5DCAA5; border-color: rgba(29,158,117,0.3); animation-delay: 1.5s; }
+.tag-3 { bottom: 10px; left: -10px; color: #FAC775; border-color: rgba(186,117,23,0.3); animation-delay: 0.75s; }
+@keyframes tagFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* SECTIONS */
+.section { padding: 6rem 0; }
+.section-dark { background: var(--dark-2); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section-header { margin-bottom: 3.5rem; }
+.section-label { font-family: var(--mono); font-size: 0.8rem; color: var(--purple); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.75rem; }
+.section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; letter-spacing: -0.03em; color: var(--text); }
+
+/* PROJECTS */
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.project-card { background: var(--dark-2); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: transform 0.25s, border-color 0.25s; }
+.project-card:hover { transform: translateY(-4px); border-color: rgba(127,119,221,0.3); }
+.project-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; min-height: 280px; }
+.project-visual { min-height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pv-purple { background: linear-gradient(135deg, #26215C, #534AB7); }
+.pv-coral  { background: linear-gradient(135deg, #4A1B0C, #993C1D); }
+.pv-teal   { background: linear-gradient(135deg, #04342C, #0F6E56); }
+.pv-amber  { background: linear-gradient(135deg, #412402, #854F0B); }
+.project-info { padding: 1.75rem; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag { font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 100px; background: rgba(127,119,221,0.15); color: #AFA9EC; border: 0.5px solid rgba(127,119,221,0.2); font-family: var(--mono); }
+.project-title { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+.project-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+.project-links { display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+.link-live { font-size: 0.875rem; font-weight: 500; color: var(--purple); transition: color 0.2s; }
+.link-live:hover { color: #AFA9EC; }
+.link-code { font-size: 0.875rem; color: var(--text-muted); font-family: var(--mono); transition: color 0.2s; }
+.link-code:hover { color: var(--text); }
+
+/* MOCK UIs */
+.mock-browser { width: 220px; background: rgba(0,0,0,0.3); border-radius: 10px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.1); }
+.mock-bar { height: 28px; background: rgba(0,0,0,0.4); display: flex; align-items: center; padding: 0 10px; gap: 6px; }
+.mock-bar span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.mock-screen { height: 120px; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 24px); }
+.mock-phone { width: 100px; height: 180px; background: rgba(0,0,0,0.4); border-radius: 20px; border: 0.5px solid rgba(255,255,255,0.15); padding: 12px 8px; }
+.mock-phone-screen { width: 100%; height: 100%; border-radius: 12px; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 18px); }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.skill-group-title { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem; }
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.pill { padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.875rem; font-weight: 500; border: 0.5px solid transparent; transition: transform 0.2s; cursor: default; }
+.pill:hover { transform: translateY(-2px); }
+.pill-purple { background: rgba(127,119,221,0.12); color: #AFA9EC; border-color: rgba(127,119,221,0.2); }
+.pill-teal   { background: rgba(29,158,117,0.12); color: #5DCAA5; border-color: rgba(29,158,117,0.2); }
+.pill-coral  { background: rgba(216,90,48,0.12); color: #F0997B; border-color: rgba(216,90,48,0.2); }
+
+/* CONTACT */
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+.contact-text p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; }
+.contact-links { display: flex; flex-direction: column; gap: 1rem; }
+.contact-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: var(--text-muted); transition: color 0.2s; padding: 0.5rem 0; border-bottom: 0.5px solid var(--border); }
+.contact-item:hover { color: var(--text); }
+.contact-icon { font-size: 1.1rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--mono); }
+.form-group input, .form-group textarea { background: var(--dark-2); border: 0.5px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 0.75rem 1rem; font-family: var(--font); font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--purple); }
+.form-success { display: none; text-align: center; color: #5DCAA5; font-size: 0.9rem; padding: 0.75rem; background: rgba(29,158,117,0.1); border-radius: var(--radius); border: 0.5px solid rgba(29,158,117,0.2); }
+
+/* FOOTER */
+.footer { border-top: 0.5px solid var(--border); padding: 2rem 0; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer p { font-size: 0.85rem; color: var(--text-muted); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { flex-direction: column; text-align: center; padding-top: 6rem; }
+  .hero-sub, .hero-actions, .hero-stats { justify-content: center; }
+  .hero-image { width: 240px; height: 240px; }
+  .avatar-ring { width: 210px; height: 210px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-featured { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="nav-logo">YN<span class="dot">.</span></div>
     <ul class="nav-links">
@@ -24,7 +180,6 @@
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire me</button>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="about">
     <div class="hero-bg-blobs" aria-hidden="true">
       <div class="blob blob-1"></div>
@@ -52,7 +207,6 @@
     <div class="hero-image">
       <div class="avatar-ring">
         <div class="avatar-inner">
-          <!-- Replace src with your own photo -->
           <div class="avatar-placeholder">YN</div>
         </div>
       </div>
@@ -62,7 +216,6 @@
     </div>
   </section>
 
-  <!-- WORK -->
   <section class="section" id="work">
     <div class="container">
       <div class="section-header">
@@ -70,105 +223,49 @@
         <h2 class="section-title">Projects I'm proud of</h2>
       </div>
       <div class="projects-grid">
-
         <article class="project-card project-featured">
           <div class="project-visual pv-purple">
-            <div class="project-mockup">
-              <div class="mock-browser">
-                <div class="mock-bar"><span></span><span></span><span></span></div>
-                <div class="mock-screen"></div>
-              </div>
+            <div class="mock-browser">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-screen"></div>
             </div>
           </div>
           <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">PostgreSQL</span>
-            </div>
+            <div class="project-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div>
             <h3 class="project-title">Project Alpha</h3>
             <p class="project-desc">A full-stack SaaS dashboard that helps teams track their KPIs in real time. Built with a React frontend, Node.js API, and PostgreSQL database.</p>
-            <div class="project-links">
-              <a href="#" class="link-live">Live ↗</a>
-              <a href="#" class="link-code">GitHub</a>
-            </div>
+            <div class="project-links"><a href="#" class="link-live">Live ↗</a><a href="#" class="link-code">GitHub</a></div>
           </div>
         </article>
-
         <article class="project-card">
           <div class="project-visual pv-coral">
-            <div class="project-mockup">
-              <div class="mock-phone">
-                <div class="mock-phone-screen"></div>
-              </div>
-            </div>
+            <div class="mock-phone"><div class="mock-phone-screen"></div></div>
           </div>
           <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">React Native</span>
-              <span class="tag">Firebase</span>
-            </div>
+            <div class="project-tags"><span class="tag">React Native</span><span class="tag">Firebase</span></div>
             <h3 class="project-title">Project Beta</h3>
             <p class="project-desc">A cross-platform mobile app for habit tracking with push notifications and analytics dashboard.</p>
-            <div class="project-links">
-              <a href="#" class="link-live">App Store ↗</a>
-              <a href="#" class="link-code">GitHub</a>
-            </div>
+            <div class="project-links"><a href="#" class="link-live">App Store ↗</a><a href="#" class="link-code">GitHub</a></div>
           </div>
         </article>
-
         <article class="project-card">
           <div class="project-visual pv-teal">
-            <div class="project-mockup">
-              <div class="mock-browser">
-                <div class="mock-bar"><span></span><span></span><span></span></div>
-                <div class="mock-screen"></div>
-              </div>
+            <div class="mock-browser">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-screen"></div>
             </div>
           </div>
           <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Next.js</span>
-              <span class="tag">Tailwind</span>
-              <span class="tag">Stripe</span>
-            </div>
+            <div class="project-tags"><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Stripe</span></div>
             <h3 class="project-title">Project Gamma</h3>
             <p class="project-desc">An e-commerce storefront with server-side rendering, Stripe payments, and a custom CMS for product management.</p>
-            <div class="project-links">
-              <a href="#" class="link-live">Live ↗</a>
-              <a href="#" class="link-code">GitHub</a>
-            </div>
+            <div class="project-links"><a href="#" class="link-live">Live ↗</a><a href="#" class="link-code">GitHub</a></div>
           </div>
         </article>
-
-        <article class="project-card">
-          <div class="project-visual pv-amber">
-            <div class="project-mockup">
-              <div class="mock-browser">
-                <div class="mock-bar"><span></span><span></span><span></span></div>
-                <div class="mock-screen"></div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Vue.js</span>
-              <span class="tag">Express</span>
-            </div>
-            <h3 class="project-title">Project Delta</h3>
-            <p class="project-desc">A collaborative project management tool with real-time updates, file sharing, and Slack integration.</p>
-            <div class="project-links">
-              <a href="#" class="link-live">Live ↗</a>
-              <a href="#" class="link-code">GitHub</a>
-            </div>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section class="section section-dark" id="skills">
     <div class="container">
       <div class="section-header">
@@ -179,41 +276,25 @@
         <div class="skill-group">
           <h3 class="skill-group-title">Frontend</h3>
           <div class="skill-pills">
-            <span class="pill pill-purple">React</span>
-            <span class="pill pill-purple">Next.js</span>
-            <span class="pill pill-purple">Vue.js</span>
-            <span class="pill pill-purple">TypeScript</span>
-            <span class="pill pill-purple">Tailwind CSS</span>
-            <span class="pill pill-purple">React Native</span>
+            <span class="pill pill-purple">React</span><span class="pill pill-purple">Next.js</span><span class="pill pill-purple">Vue.js</span><span class="pill pill-purple">TypeScript</span><span class="pill pill-purple">Tailwind CSS</span><span class="pill pill-purple">React Native</span>
           </div>
         </div>
         <div class="skill-group">
           <h3 class="skill-group-title">Backend</h3>
           <div class="skill-pills">
-            <span class="pill pill-teal">Node.js</span>
-            <span class="pill pill-teal">Express</span>
-            <span class="pill pill-teal">Python</span>
-            <span class="pill pill-teal">PostgreSQL</span>
-            <span class="pill pill-teal">MongoDB</span>
-            <span class="pill pill-teal">Redis</span>
+            <span class="pill pill-teal">Node.js</span><span class="pill pill-teal">Express</span><span class="pill pill-teal">Python</span><span class="pill pill-teal">PostgreSQL</span><span class="pill pill-teal">MongoDB</span><span class="pill pill-teal">Redis</span>
           </div>
         </div>
         <div class="skill-group">
           <h3 class="skill-group-title">DevOps & tools</h3>
           <div class="skill-pills">
-            <span class="pill pill-coral">Vercel</span>
-            <span class="pill pill-coral">Docker</span>
-            <span class="pill pill-coral">AWS</span>
-            <span class="pill pill-coral">Git</span>
-            <span class="pill pill-coral">CI/CD</span>
-            <span class="pill pill-coral">Firebase</span>
+            <span class="pill pill-coral">Vercel</span><span class="pill pill-coral">Docker</span><span class="pill pill-coral">AWS</span><span class="pill pill-coral">Git</span><span class="pill pill-coral">CI/CD</span><span class="pill pill-coral">Firebase</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
       <div class="section-header">
@@ -224,33 +305,15 @@
         <div class="contact-text">
           <p>Have a project in mind? I'd love to hear about it. Whether it's a full product build, a quick fix, or just a chat about tech — my inbox is open.</p>
           <div class="contact-links">
-            <a href="mailto:you@email.com" class="contact-item">
-              <span class="contact-icon">✉️</span>
-              <span>you@email.com</span>
-            </a>
-            <a href="https://github.com/yourusername" target="_blank" class="contact-item">
-              <span class="contact-icon">💻</span>
-              <span>github.com/yourusername</span>
-            </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-item">
-              <span class="contact-icon">🔗</span>
-              <span>linkedin.com/in/yourusername</span>
-            </a>
+            <a href="mailto:you@email.com" class="contact-item"><span class="contact-icon">✉️</span><span>you@email.com</span></a>
+            <a href="https://github.com/yourusername" target="_blank" class="contact-item"><span class="contact-icon">💻</span><span>github.com/yourusername</span></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-item"><span class="contact-icon">🔗</span><span>linkedin.com/in/yourusername</span></a>
           </div>
         </div>
         <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea>
-          </div>
+          <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Your name" required /></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="your@email.com" required /></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea></div>
           <button type="submit" class="btn-primary btn-full" id="submit-btn">Send message →</button>
           <p class="form-success" id="form-success">Thanks! I'll get back to you soon. 🎉</p>
         </form>
@@ -258,7 +321,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="nav-logo">YN<span class="dot">.</span></span>
@@ -271,6 +333,59 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const words = ['web apps', 'mobile apps', 'APIs', 'dashboards', 'products'];
+let wordIdx = 0;
+const rotatingEl = document.getElementById('rotating-word');
+rotatingEl.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+setInterval(() => {
+  rotatingEl.style.opacity = '0';
+  rotatingEl.style.transform = 'translateY(8px)';
+  setTimeout(() => {
+    wordIdx = (wordIdx + 1) % words.length;
+    rotatingEl.textContent = words[wordIdx];
+    rotatingEl.style.opacity = '1';
+    rotatingEl.style.transform = 'translateY(0)';
+  }, 300);
+}, 2500);
+
+document.querySelectorAll('.project-card, .skill-group, .contact-layout, .section-header').forEach(el => el.classList.add('reveal'));
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+  }, 1200);
+}
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top && window.scrollY < top + section.offsetHeight) {
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + section.id ? '#f0eff8' : '';
+      });
+    }
+  });
+}, { passive: true });
+  </script>
 </body>
 </html>
